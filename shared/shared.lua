@@ -1,11 +1,7 @@
 Config = Config or {}
 
 Config.Debug = false
-
-Config.Core = 'qb-core'
-Config.Target = 'qb-target'
-Config.Input = 'qb-input'
-
+Config.Target = 'ox_target' -- ox_target or qtarget
 Config.DefaultImage = 'https://i.imgur.com/G8LcacY.png'
 
 -- Stash Location
@@ -15,8 +11,8 @@ Config.StashSlots = 30
 Config.PickupWeight = 200000
 Config.PickupSlots = 25
 
-Config.WipeStashOnLeave = true -- WIPES THE CONTENTS INSIDE THE STASHES OF YOUR BOOTH WHEN YOU LEAVE [RECOMMENDED: TRUE] [REQUIRES OXMYSQL]
-Config.AllowMultipleClaims = true -- THIS ALLOWS MULTIPLE BOOTHS TO BE CLAIMED FROM THE SAME PERSON [RECOMMENDED: FALSE]
+Config.WipeStashOnLeave = true -- WIPES THE CONTENTS INSIDE THE STASHES OF YOUR BOOTH WHEN YOU LEAVE [RECOMMENDED: TRUE] [REQUIRES OXMYSQL & OX_INVENTORY]
+Config.AllowMultipleClaims = false -- THIS ALLOWS MULTIPLE BOOTHS TO BE CLAIMED FROM THE SAME PERSON [RECOMMENDED: FALSE]
 
 -- PolyZone Config
 Config.PierPoly = vector3(-1654.94, -1024.43, 13.02) -- JUST DON'T TOUCH
