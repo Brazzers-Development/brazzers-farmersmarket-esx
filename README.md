@@ -31,14 +31,16 @@ Preview: [SOON]
 5. Ability To Claim, Join, & Leave Booths
 6. Ability To Create More Booths (Editable in the Config)
 7. Multi-Notification Support
-8. Multi-Language Support using QBCore Locales
+8. Multi-Language Support using ESX Locales
 9. 24/7 Support in discord
 
 ## Credits
 Taken#8395 - Farmers Market Map [Discord Server]()
 
 ## Dependencies
-1. PolyZone
-2. qb-target
-3. qb-input
+1. esx legacy
+2. qtarget or ox_target
+3. ox_inventory
+4. ox_lib
+5. PolyZone
 
