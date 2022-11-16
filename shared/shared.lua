@@ -15,7 +15,7 @@ Config.WipeStashOnLeave = true -- WIPES THE CONTENTS INSIDE THE STASHES OF YOUR 
 Config.AllowMultipleClaims = false -- THIS ALLOWS MULTIPLE BOOTHS TO BE CLAIMED FROM THE SAME PERSON [RECOMMENDED: FALSE]
 
 -- PolyZone Config
-Config.PierPoly = vector3(-1654.94, -1024.43, 13.02) -- JUST DON'T TOUCH
+Config.PierPoly = vector3(-1690.36, -1065.11, 13.12) -- JUST DON'T TOUCH
 Config.PierRadius = 150.00 -- JUST DON'T TOUCH
 
 Config.Market = {
