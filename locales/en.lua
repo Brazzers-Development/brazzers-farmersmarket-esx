@@ -1,4 +1,5 @@
 Locales["en"] = {
+    -- Notifications
     ['market_not_open'] = 'Market is closed',
     ['not_claimed'] = 'This booth has not been claimed',
     ['incorrect_password'] = 'Incorrect password',
@@ -13,4 +14,10 @@ Locales["en"] = {
     ['global_left_booth'] = '%s left the booth',
     ['disband_group'] = 'Booth disbanded',
     ['password_not_number'] = 'Password must be a number',
+    -- Input
+    ['set_password'] = 'Set Booth Password',
+    ['input_password'] = 'Input Booth Password',
+    ['change_banner'] = 'Change Banner'
+    ['banner_url'] = 'Imgur (1024x1024)'
+    ['password'] = 'Password',
 }

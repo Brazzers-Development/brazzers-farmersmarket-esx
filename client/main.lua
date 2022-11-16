@@ -53,10 +53,10 @@ local function claimBooth(k)
     if not isMarketOpen() then return notification("market_not_open", "error") end
     if Config.Market[k]['owner'] then return notification("already_claimed", "error") end
     
-    local input = lib.inputDialog("Set Booth Password", {"Password"})
+    local input = lib.inputDialog(TranslateCap('set_password'), {TranslateCap('password')})
     if not input then return end
     
-    password = tonumber(input[1])
+    local password = tonumber(input[1])
     if not password then return notification("password_not_number", "error") end
     
     TriggerServerEvent('brazzers-market:server:setOwner', k, password)
@@ -70,10 +70,10 @@ local function joinBooth(k)
     if not isMarketOpen() then return notification("market_not_open", "error") end
     if not Config.Market[k]['owner'] then return notification("not_claimed", "error") end
 
-    local input = lib.inputDialog("Input Booth Password", {'Password'})
+    local input = lib.inputDialog(TranslateCap('input_password'), {TranslateCap('password')})
     if not input then return end
 
-    password = tonumber(input[1])
+    local password = tonumber(input[1])
     if not password then return notification("password_not_number", "error") end
 
     if password ~= Config.Market[k]['password'] then return notification("incorrect_password", "error") end
@@ -84,7 +84,7 @@ local function changeBanner(k)
     if not isMarketOpen() then return notification("market_not_open", "error") end
     ESX.TriggerServerCallback('brazzers-market:server:groupMembers', function(IsOwner, IsInGroup)
         if IsOwner or IsInGroup then
-            local input = lib.inputDialog("Change Banner", {"Imgur (1024x1024"})
+            local input = lib.inputDialog(TranslateCap('change_banner'), {TranslateCap('banner_url')})
             if not input then return end
 
             banner = input[1]
