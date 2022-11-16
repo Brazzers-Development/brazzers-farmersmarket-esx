@@ -147,100 +147,196 @@ end)
 
 CreateThread(function()
     for k, v in pairs(Config.Market) do
-        exports[Config.Target]:AddBoxZone("market_booth_"..k, v['booth']['coords'].xyz, 1.0, 3.0, {
-            name = "market_booth_"..k,
-            heading = v['booth']['heading'],
-            debugPoly = Config.Debug,
-            minZ = v['booth']['coords'].z,
-            maxZ = v['booth']['coords'].z + 1.5,
-            }, {
+        if Config.Target == 'ox_target' then
+            exports.ox_target:addBoxZone({
+                coords = v['booth']['coords'].xyz,
+                size = vec3(1.0, 3.0, 1.0),
+                rotation = 135,
+                debug = Config.Debug,
                 options = {
-                {
-                    action = function()
-                        claimBooth(k)
-                    end,
-                    icon = 'fas fa-flag',
-                    label = 'Claim Booth',
-                    canInteract = function()
-                        if isMarketOpen() then
+                    {   
+                        name = "market_booth_"..k,
+                        icon = 'fas fa-flag',
+                        label = 'Claim Booth',
+                        onSelect = function()
+                            claimBooth(k)
+                        end,
+                        canInteract = function()
+                            if not isMarketOpen() then return end
                             return true
-                        end
-                    end,
-                },
-                {
-                    action = function()
-                        leaveBooth(k)
-                    end,
-                    icon = 'fas fa-flag',
-                    label = 'Leave Booth',
-                    canInteract = function()
-                        if isMarketOpen() and Config.Market[k]['owner'] then
+                        end,
+                    },
+                    {   
+                        name = "market_booth_"..k,
+                        icon = 'fas fa-flag',
+                        label = 'Leave Booth',
+                        onSelect = function()
+                            leaveBooth(k)
+                        end,
+                        canInteract = function()
+                            if not isMarketOpen() then return end
+                            if not Config.Market[k]['owner'] then return end
                             return true
-                        end
-                    end,
-                },
-                {
-                    action = function()
-                        joinBooth(k)
-                    end,
-                    icon = 'fas fa-circle',
-                    label = 'Join Booth',
-                    canInteract = function()
-                        if isMarketOpen() and Config.Market[k]['owner'] then
+                        end,
+                    },
+                    {   
+                        name = "market_booth_"..k,
+                        icon = 'fas fa-circle',
+                        label = 'Join Booth',
+                        onSelect = function()
+                            joinBooth(k)
+                        end,
+                        canInteract = function()
+                            if not isMarketOpen() then return end
+                            if not Config.Market[k]['owner'] then return end
                             return true
-                        end
-                    end,
-                },
-                {
-                    action = function()
-                        changeBanner(k)
-                    end,
-                    icon = 'fas fa-recycle',
-                    label = 'Change Banner',
-                    canInteract = function()
-                        if isMarketOpen() and Config.Market[k]['owner'] then
+                        end,
+                    },
+                    {   
+                        name = "market_booth_"..k,
+                        icon = 'fas fa-recycle',
+                        label = 'Change Banner',
+                        onSelect = function()
+                            changeBanner(k)
+                        end,
+                        canInteract = function()
+                            if not isMarketOpen() then return end
+                            if not Config.Market[k]['owner'] then return end
                             return true
-                        end
-                    end,
-                },
-            },
-            distance = 1.0,
-        })
+                        end,
+                    },
+                }
+            })
 
-        exports[Config.Target]:AddBoxZone("market_register_"..k, v['register']['coords'].xyz, 1.5, 1.0, {
-            name = "market_register_"..k,
-            heading = v['register']['heading'],
-            debugPoly = Config.Debug,
-            minZ = v['register']['coords'].z - 1.0,
-            maxZ = v['register']['coords'].z + 1.0,
-            }, {
+            exports.ox_target:addBoxZone({
+                coords = v['register']['coords'].xyz,
+                size = vec3(1.5, 1.0, 1.0),
+                rotation = 135,
+                debug = Config.Debug,
                 options = {
-                {
-                    action = function()
-                        marketStash(k)
-                    end,
-                    icon = 'fas fa-box',
-                    label = 'Inventory',
-                    canInteract = function()
-                        if isMarketOpen() and Config.Market[k]['owner'] then
+                    {   
+                        name = "market_register_"..k,
+                        icon = 'fas fa-box',
+                        label = 'Inventory',
+                        onSelect = function()
+                            marketStash(k)
+                        end,
+                        canInteract = function()
+                            if not isMarketOpen() then return end
+                            if not Config.Market[k]['owner'] then return end
                             return true
-                        end
-                    end,
-                },
-                {
-                    action = function()
-                        marketPickup(k)
-                    end,
-                    icon = 'fas fa-hand-holding',
-                    label = 'Pick Up',
-                    canInteract = function()
-                        if isMarketOpen() and Config.Market[k]['owner'] then
+                        end,
+                    },
+                    {   
+                        name = "market_register_"..k,
+                        icon = 'fas fa-hand-holding',
+                        label = 'Pick Up',
+                        onSelect = function()
+                            marketPickup(k)
+                        end,
+                        canInteract = function()
+                            if not isMarketOpen() then return end
+                            if not Config.Market[k]['owner'] then return end
                             return true
-                        end
-                    end,
+                        end,
+                    },
+                }
+            })
+        else
+            exports[Config.Target]:AddBoxZone("market_booth_"..k, v['booth']['coords'].xyz, 1.0, 3.0, {
+                name = "market_booth_"..k,
+                heading = v['booth']['heading'],
+                debugPoly = Config.Debug,
+                minZ = v['booth']['coords'].z,
+                maxZ = v['booth']['coords'].z + 1.5,
+                }, {
+                    options = {
+                    {
+                        action = function()
+                            claimBooth(k)
+                        end,
+                        icon = 'fas fa-flag',
+                        label = 'Claim Booth',
+                        canInteract = function()
+                            if not isMarketOpen() then return end
+                            return true
+                        end,
+                    },
+                    {
+                        action = function()
+                            leaveBooth(k)
+                        end,
+                        icon = 'fas fa-flag',
+                        label = 'Leave Booth',
+                        canInteract = function()
+                            if not isMarketOpen() then return end
+                            if not Config.Market[k]['owner'] then return end
+                            return true
+                        end,
+                    },
+                    {
+                        action = function()
+                            joinBooth(k)
+                        end,
+                        icon = 'fas fa-circle',
+                        label = 'Join Booth',
+                        canInteract = function()
+                            if not isMarketOpen() then return end
+                            if not Config.Market[k]['owner'] then return end
+                            return true
+                        end,
+                    },
+                    {
+                        action = function()
+                            changeBanner(k)
+                        end,
+                        icon = 'fas fa-recycle',
+                        label = 'Change Banner',
+                        canInteract = function()
+                            if not isMarketOpen() then return end
+                            if not Config.Market[k]['owner'] then return end
+                            return true
+                        end,
+                    },
                 },
-            },
-            distance = 1.0,
-        })
+                distance = 1.0,
+            })
+
+            exports[Config.Target]:AddBoxZone("market_register_"..k, v['register']['coords'].xyz, 1.5, 1.0, {
+                name = "market_register_"..k,
+                heading = v['register']['heading'],
+                debugPoly = Config.Debug,
+                minZ = v['register']['coords'].z - 1.0,
+                maxZ = v['register']['coords'].z + 1.0,
+                }, {
+                    options = {
+                    {
+                        action = function()
+                            marketStash(k)
+                        end,
+                        icon = 'fas fa-box',
+                        label = 'Inventory',
+                        canInteract = function()
+                            if isMarketOpen() and Config.Market[k]['owner'] then
+                                return true
+                            end
+                        end,
+                    },
+                    {
+                        action = function()
+                            marketPickup(k)
+                        end,
+                        icon = 'fas fa-hand-holding',
+                        label = 'Pick Up',
+                        canInteract = function()
+                            if isMarketOpen() and Config.Market[k]['owner'] then
+                                return true
+                            end
+                        end,
+                    },
+                },
+                distance = 1.0,
+            })
+        end
     end
 end)
