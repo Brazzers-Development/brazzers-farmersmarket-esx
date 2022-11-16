@@ -158,7 +158,7 @@ AddEventHandler('playerDropped', function(reason)
     end
 end)
 
-AddEventHandler('onServerResourceStart', function(resourceName)
+AddEventHandler('onResourceStart', function(resourceName)
     if resourceName == GetCurrentResourceName() then
         for k, _ in pairs(Config.Market) do
             exports.ox_inventory:RegisterStash('market_stash'..k, 'Market Stash', Config.StashSlots, Config.StashWeight, false)
