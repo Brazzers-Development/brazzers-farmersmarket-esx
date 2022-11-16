@@ -17,7 +17,7 @@ Locales["en"] = {
     -- Input
     ['set_password'] = 'Set Booth Password',
     ['input_password'] = 'Input Booth Password',
-    ['change_banner'] = 'Change Banner'
-    ['banner_url'] = 'Imgur (1024x1024)'
+    ['change_banner'] = 'Change Banner',
+    ['banner_url'] = 'Imgur (1024x1024)',
     ['password'] = 'Password',
 }
