@@ -21,7 +21,11 @@
 ## General Setup
 A group based market system, allowing you to claim, join, leave, and change booth DUIs all in game set through the config. Each booth is set with an inventory to store any sellable content inside and a pickup location to handle your transactions with your customers. This system is absolutely amazing for roleplay within any server that needs ideas for businesses
 
-Preview: [SOON]
+## Compatibility
+This system only works with ox_inventory. No other inventory is supported. Please read the remaining dependencies below for targetting system
+
+Preview: [[SOON](https://youtu.be/3EoIAHtDX9U)]
+MAP DISCOUNT CODE: fm100
 
 ## Features
 1. Unique-Synced Market System
