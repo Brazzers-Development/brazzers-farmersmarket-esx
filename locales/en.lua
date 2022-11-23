@@ -20,4 +20,12 @@ Locales["en"] = {
     ['change_banner'] = 'Change Banner',
     ['banner_url'] = 'Imgur (1024x1024)',
     ['password'] = 'Password',
+    -- Booth Target
+    ['claim_booth'] = 'Claim Booth',
+    ['leave_booth'] = 'Leave Booth',
+    ['join_booth'] = 'Join Booth',
+    ['banner_change'] = 'Change Banner',
+    -- Register Target
+    ['register_inventory'] = 'Inventory',
+    ['register_pickup'] = 'Pickup',
 }
