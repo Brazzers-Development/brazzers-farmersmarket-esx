@@ -41,6 +41,10 @@ local function setupDUI()
             for k, _ in pairs(Config.Market) do
                 CreateDUI(k, Config.Market[k]['boothDUI']['url'])
             end
+            while isPointInside do
+                ClearAreaOfPeds(Config.PierPoly.x, Config.PierPoly.y, Config.PierPoly.z, Config.PierRadius, false, false, false, false, false)
+                Wait(100)
+            end
         else
             for k, _ in pairs(Config.Market) do
                 removeDUI(k, true)
