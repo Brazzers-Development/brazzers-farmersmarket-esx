@@ -22,15 +22,12 @@ server_scripts {
 
 shared_scripts {
 	'@es_extended/imports.lua',
-	'@es_extended/locale.lua',
 	'@ox_lib/init.lua',
-	'locales/*.lua',
 	'shared/*.lua',
 }
 
 escrow_ignore {
     'client/open.lua',
     'server/open.lua',
-    'locales/*.lua',
 	'shared/*.lua',
 }

@@ -6,6 +6,6 @@
 function notification(src, msg, type, value)
     local Player = ESX.GetPlayerFromId(src)
 
-    if value then return Player.showNotification(TranslateCap(msg, value), type) end
-    Player.showNotification(TranslateCap(msg), type)
+    if value then return Player.showNotification(Config.Lang[msg, value], type) end
+    Player.showNotification(Config.Lang[msg], type)
 end

@@ -7,5 +7,5 @@ end
 -- @param msg - locale string
 -- @param type - 'error' / 'success'
 function notification(msg, type)
-    ESX.ShowNotification(TranslateCap(msg), type)
+    ESX.ShowNotification(Config.Lang[msg], type)
 end
