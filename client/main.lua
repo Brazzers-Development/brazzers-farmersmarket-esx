@@ -57,7 +57,7 @@ local function claimBooth(k)
     if not isMarketOpen() then return notification("market_not_open", "error") end
     if Config.Market[k]['owner'] then return notification("already_claimed", "error") end
     
-    local input = lib.inputDialog(TranslateCap('set_password'), {TranslateCap('password')})
+    local input = lib.inputDialog(Config.Lang['set_password'], {Config.Lang['password']})
     if not input then return end
     
     local password = tonumber(input[1])
@@ -74,7 +74,7 @@ local function joinBooth(k)
     if not isMarketOpen() then return notification("market_not_open", "error") end
     if not Config.Market[k]['owner'] then return notification("not_claimed", "error") end
 
-    local input = lib.inputDialog(TranslateCap('input_password'), {TranslateCap('password')})
+    local input = lib.inputDialog(Config.Lang['input_password'], {Config.Lang['password']})
     if not input then return end
 
     local password = tonumber(input[1])
@@ -88,7 +88,7 @@ local function changeBanner(k)
     if not isMarketOpen() then return notification("market_not_open", "error") end
     ESX.TriggerServerCallback('brazzers-market:server:groupMembers', function(IsOwner, IsInGroup)
         if IsOwner or IsInGroup then
-            local input = lib.inputDialog(TranslateCap('change_banner'), {TranslateCap('banner_url')})
+            local input = lib.inputDialog(Config.Lang['change_banner'], {Config.Lang['banner_url']})
             if not input then return end
 
             banner = input[1]
@@ -161,7 +161,7 @@ CreateThread(function()
                     {   
                         name = "market_booth_"..k,
                         icon = 'fas fa-flag',
-                        label = TranslateCap('claim_booth'),
+                        label = Config.Lang['claim_booth'],
                         onSelect = function()
                             claimBooth(k)
                         end,
@@ -173,7 +173,7 @@ CreateThread(function()
                     {   
                         name = "market_booth_"..k,
                         icon = 'fas fa-flag',
-                        label = TranslateCap('leave_booth'),
+                        label = Config.Lang['leave_booth'],
                         onSelect = function()
                             leaveBooth(k)
                         end,
@@ -186,7 +186,7 @@ CreateThread(function()
                     {   
                         name = "market_booth_"..k,
                         icon = 'fas fa-circle',
-                        label = TranslateCap('join_booth'),
+                        label = Config.Lang['join_booth'],
                         onSelect = function()
                             joinBooth(k)
                         end,
@@ -199,7 +199,7 @@ CreateThread(function()
                     {   
                         name = "market_booth_"..k,
                         icon = 'fas fa-recycle',
-                        label = TranslateCap('banner_change'),
+                        label = Config.Lang['banner_change'],
                         onSelect = function()
                             changeBanner(k)
                         end,
@@ -221,7 +221,7 @@ CreateThread(function()
                     {   
                         name = "market_register_"..k,
                         icon = 'fas fa-box',
-                        label = TranslateCap('register_inventory'),
+                        label = Config.Lang['register_inventory'],
                         onSelect = function()
                             marketStash(k)
                         end,
@@ -234,7 +234,7 @@ CreateThread(function()
                     {   
                         name = "market_register_"..k,
                         icon = 'fas fa-hand-holding',
-                        label = TranslateCap('register_pickup'),
+                        label = Config.Lang['register_pickup'],
                         onSelect = function()
                             marketPickup(k)
                         end,
@@ -260,7 +260,7 @@ CreateThread(function()
                             claimBooth(k)
                         end,
                         icon = 'fas fa-flag',
-                        label = TranslateCap('claim_booth'),
+                        label = Config.Lang['claim_booth'],
                         canInteract = function()
                             if not isMarketOpen() then return end
                             return true
@@ -271,7 +271,7 @@ CreateThread(function()
                             leaveBooth(k)
                         end,
                         icon = 'fas fa-flag',
-                        label = TranslateCap('leave_booth'),
+                        label = Config.Lang['leave_booth'],
                         canInteract = function()
                             if not isMarketOpen() then return end
                             if not Config.Market[k]['owner'] then return end
@@ -283,7 +283,7 @@ CreateThread(function()
                             joinBooth(k)
                         end,
                         icon = 'fas fa-circle',
-                        label = TranslateCap('join_booth'),
+                        label = Config.Lang['join_booth'],
                         canInteract = function()
                             if not isMarketOpen() then return end
                             if not Config.Market[k]['owner'] then return end
@@ -295,7 +295,7 @@ CreateThread(function()
                             changeBanner(k)
                         end,
                         icon = 'fas fa-recycle',
-                        label = TranslateCap('banner_change'),
+                        label = Config.Lang['banner_change'],
                         canInteract = function()
                             if not isMarketOpen() then return end
                             if not Config.Market[k]['owner'] then return end
@@ -319,7 +319,7 @@ CreateThread(function()
                             marketStash(k)
                         end,
                         icon = 'fas fa-box',
-                        label = TranslateCap('register_inventory'),
+                        label = Config.Lang['register_inventory'],
                         canInteract = function()
                             if isMarketOpen() and Config.Market[k]['owner'] then
                                 return true
@@ -331,7 +331,7 @@ CreateThread(function()
                             marketPickup(k)
                         end,
                         icon = 'fas fa-hand-holding',
-                        label = TranslateCap('register_pickup'),
+                        label = Config.Lang['register_pickup'],
                         canInteract = function()
                             if isMarketOpen() and Config.Market[k]['owner'] then
                                 return true
